@@ -1,0 +1,49 @@
+# Flutter-specific
+.flutter/
+.dart_tool/
+.idea/
+.vscode/
+build/
+*.iml
+*.packages
+.DS_Store
+
+# Android-specific
+android/local.properties
+android/.gradle/
+android/build/
+android/app/build/
+android/app/src/debug/
+
+# iOS-specific
+ios/.symlinks/
+ios/Flutter/.last_build_id
+ios/Runner.xcworkspace/xcuserdata/
+ios/Runner.xcworkspace/xcshareddata/
+
+# macOS-specific
+macos/Flutter/ephemeral/
+
+# Windows-specific
+windows/flutter/ephemeral/
+
+# Linux-specific
+linux/flutter/ephemeral/
+
+# Web-specific
+web/flutter_service_worker.js
+web/index.html
+
+# VS Code
+.vscode/
+
+# Generated files
+lib/generated_plugin_registrant.dart
+
+# Firebase-specific (if applicable)
+lib/firebase_options.dart
+
+# Other
+*.log
+*.lock
+*.env
