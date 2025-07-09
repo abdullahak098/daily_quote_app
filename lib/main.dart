@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart'; // dotenv import
 
 import 'screens/home_screen.dart';
 import 'screens/login_screen.dart';
@@ -13,15 +14,18 @@ import 'services/notification_service.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  // Load environment variables from .env
+  await dotenv.load(fileName: ".env");
+
   if (kIsWeb) {
     await Firebase.initializeApp(
-      options: const FirebaseOptions(
-        apiKey: "AIzaSyCVpIPIt0XwQnk1tJf4U_4TT0RBxHU91Ls",
-        authDomain: "dailyquoteapp-bc3bf.firebaseapp.com",
-        projectId: "dailyquoteapp-bc3bf",
-        storageBucket: "dailyquoteapp-bc3bf.appspot.com",
-        messagingSenderId: "825923183845",
-        appId: "1:825923183845:web:88e3795f3b3e59b82b200c", // You can replace this with your real Web App ID if you add one
+      options: FirebaseOptions(
+        apiKey: dotenv.env['FIREBASE_API_KEY'] ?? '',
+        authDomain: dotenv.env['FIREBASE_AUTH_DOMAIN'] ?? '',
+        projectId: dotenv.env['FIREBASE_PROJECT_ID'] ?? '',
+        storageBucket: dotenv.env['FIREBASE_STORAGE_BUCKET'] ?? '',
+        messagingSenderId: dotenv.env['FIREBASE_MESSAGING_SENDER_ID'] ?? '',
+        appId: dotenv.env['FIREBASE_APP_ID'] ?? '',
       ),
     );
   } else {
